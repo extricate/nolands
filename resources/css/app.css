@@ -2,3 +2,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+.main-background {
+    min-height: 100vh;
+    background-image: url("/background.jpeg");
+    background-size: cover;
+}

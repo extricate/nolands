@@ -2,18 +2,14 @@
     <Head title="Your story"/>
 
     <BreezeAuthenticatedLayout>
-        <template #header>
-            <div class="flex" style="justify-content: center">
-                <h2 class="font-serif text-2xl text-gray-100">
-                    The Nolands story of {{ $page.props.auth.user.name }}
-                </h2>
-            </div>
-        </template>
-
         <div class="py-12">
-            <div class="text-x text-xl max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="text-x bg-gray-900 opacity-90 rounded text-xl max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-white">
+                    <div class="p-6 pt-12 text-white">
+                        <h2 class="font-serif text-2xl text-gray-100 pb-6">
+                            The Nolands story of {{ $page.props.auth.user.name }}
+                        </h2>
+
                         <p>
                             This is where your Nolands 2022 story starts. An epic adventure often resulting in the birth
                             of new

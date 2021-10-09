@@ -25,7 +25,7 @@
         </div>
 
         <div class="flex items-center justify-between mt-4">
-            <Link :href="route('login')" class="underline text-sm text-gray-100 hover:text-gray-900">
+            <Link :href="route('login')" class="underline text-sm text-gray-100 hover:text-gray-500">
                 Already registered?
             </Link>
 

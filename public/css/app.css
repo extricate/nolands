@@ -38261,6 +38261,12 @@ select {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.main-background {
+  min-height: 100vh;
+  background-image: url("/background.jpeg");
+  background-size: cover;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -194700,5 +194706,4 @@ select {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
-
 

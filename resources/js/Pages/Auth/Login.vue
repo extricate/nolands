@@ -26,7 +26,7 @@
         </div>
 
         <div class="flex items-center justify-between mt-4">
-            <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-100 hover:text-gray-900">
+            <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-100 hover:text-gray-500">
                 Forgot your password?
             </Link>
 
