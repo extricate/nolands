@@ -22,8 +22,17 @@ class UserIndexController extends Controller
 
         $users = QueryBuilder::for(User::class)
             ->defaultSort('name')
-            ->allowedSorts(['name', 'email', 'payment_received'])
-            ->allowedFilters(['name', 'email', 'payment_received', $globalSearch])
+            ->allowedSorts([
+                'name',
+                'email',
+                'payment_received'
+            ])
+            ->allowedFilters([
+                'name',
+                'email',
+                'payment_received',
+                $globalSearch
+            ])
             ->paginate()
             ->withQueryString();
 

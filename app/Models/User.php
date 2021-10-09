@@ -24,6 +24,16 @@ class User extends Authenticatable
         'email',
         'password',
         'payment_received',
+        'arrives_on',
+        'has_arranged_transportation',
+        'chauffeur_name',
+        'has_medical_training',
+        'tent_size',
+        'other_tent_occupants',
+        'dietary_preferences',
+        'has_blankets',
+        'initial_sustenance',
+        'departure_date',
     ];
 
     /**
@@ -43,6 +53,10 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'arrives_on' => 'datetime:Y-m-d',
+        'departure_date' => 'datetime:Y-m-d',
         'payment_received' => 'boolean',
     ];
+
+
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserIndexController;
+use App\Http\Controllers\UserStoryController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -41,6 +42,14 @@ Route::get('/user/{user}/edit', [UserController::class, 'edit'])
 Route::patch('/user/{user}/edit', [UserController::class, 'update'])
     ->middleware(['auth', 'verified'])
     ->name('user.update');
+
+Route::get('/story', [UserStoryController::class, 'edit'])
+    ->middleware(['auth', 'verified'])
+    ->name('story.edit');
+
+Route::patch('/story/{user}', [UserStoryController::class, 'update'])
+    ->middleware(['auth', 'verified'])
+    ->name('story.update');
 
 Route::get('/info', function () {
     return Inertia::render('Info');

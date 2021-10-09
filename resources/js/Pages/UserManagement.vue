@@ -2,12 +2,6 @@
     <Head title="Dashboard"/>
 
     <BreezeAuthenticatedLayout>
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-100 leading-tight">
-                User management
-            </h2>
-        </template>
-
         <div class="h-40 py-12 p-6">
             <Table
                 :filters="queryBuilderProps.filters"
