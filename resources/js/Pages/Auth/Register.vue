@@ -24,11 +24,6 @@
             <BreezeInput id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
         </div>
 
-        <div class="mt-4">
-            <BreezeLabel for="arrives_on" value="Confirm Password" />
-            <BreezeInput id="arrives_on" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
-        </div>
-
         <div class="flex items-center justify-between mt-4">
             <Link :href="route('login')" class="underline text-sm text-gray-100 hover:text-gray-900">
                 Already registered?
