@@ -25,12 +25,33 @@ class UserIndexController extends Controller
             ->allowedSorts([
                 'name',
                 'email',
-                'payment_received'
+                'payment_received',
+                'arrives_on',
+                'has_arranged_transportation',
+                'chauffeur_name',
+                'has_medical_training',
+                'tent_size',
+                'other_tent_occupants',
+                'dietary_preferences',
+                'has_blankets',
+                'initial_sustenance',
+                'departure_date',
             ])
             ->allowedFilters([
                 'name',
                 'email',
                 'payment_received',
+                'payment_received',
+                'arrives_on',
+                'has_arranged_transportation',
+                'chauffeur_name',
+                'has_medical_training',
+                'tent_size',
+                'other_tent_occupants',
+                'dietary_preferences',
+                'has_blankets',
+                'initial_sustenance',
+                'departure_date',
                 $globalSearch
             ])
             ->paginate()
@@ -39,16 +60,44 @@ class UserIndexController extends Controller
         return Inertia::render('UserManagement', [
             'users' => $users,
         ])->table(function (InertiaTable $table) {
-            $table->addSearchRows([
-                'name' => 'Name',
-                'email' => 'Email address',
-            ])->addFilter('payment_received', 'Payment received', [
-                true => 'Payment received',
-                false => 'No payment received',
-            ])->addColumns([
-                'email' => 'Email address',
-                'payment_received' => 'Payment received',
-            ]);
+            $table
+                ->addSearchRows([
+                    'name' => 'Name',
+                    'email' => 'Email address',
+                    'payment_received' => 'Payment received',
+                    'arrives_on' => 'Arrival date',
+                    'has_arranged_transportation' => 'Has transportation',
+                    'chauffeur_name' => 'Drives with',
+                    'has_medical_training' => 'Has medical training',
+                    'tent_size' => 'Tent size',
+                    'other_tent_occupants' => 'Other tent occupants',
+                    'dietary_preferences' => 'Dietary preferences',
+                    'has_blankets' => 'Brings blankets',
+                    'initial_sustenance' => 'Welcome package choice',
+                    'departure_date' => 'Departure date',
+                ])
+                ->addFilter('payment_received', 'Payment received', [
+                    true => 'Payment received',
+                    false => 'No payment received',
+                ])
+                ->addFilter('has_medical_training', 'Has medical training', [
+                    true => 'Has medical training',
+                    false => 'No medical training',
+                ])
+                ->addColumns([
+                    'email' => 'Email address',
+                    'payment_received' => 'Payment received',
+                    'arrives_on' => 'Arrival date',
+                    'has_arranged_transportation' => 'Has transportation',
+                    'chauffeur_name' => 'Drives with',
+                    'has_medical_training' => 'Has medical training',
+                    'tent_size' => 'Tent size',
+                    'other_tent_occupants' => 'Other tent occupants',
+                    'dietary_preferences' => 'Dietary preferences',
+                    'has_blankets' => 'Brings blankets',
+                    'initial_sustenance' => 'Welcome package choice',
+                    'departure_date' => 'Departure date',
+                ]);
         });
     }
 }

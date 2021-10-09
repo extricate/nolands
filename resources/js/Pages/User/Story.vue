@@ -105,12 +105,14 @@
         </div>
 
         <div class="flex items-center justify-between mt-4">
-            <Link class="text-gray-100" :href="route('dashboard')">Back</Link>
+            <Link class="text-gray-100" :href="route('dashboard')">
+                <i class="fas fa-arrow-left mr-3"></i> Back
+            </Link>
 
             <BreezeButton class="ml-4"
                           :class="{ 'opacity-25': form.processing, 'bg-green-600': form.success }"
                           :disabled="form.processing">
-                Update my story
+                {{ form.processing ? 'Processing... ' : 'Update my story' }} <i :class="{'fas fa-spin fa-spinner ml-3': form.processing, 'fas fa-check ml-3': form.success}"></i>
             </BreezeButton>
         </div>
     </form>
