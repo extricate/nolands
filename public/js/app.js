@@ -27161,7 +27161,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "h-40 py-12 p-6"
+  "class": "p-14"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, null, -1
@@ -27201,7 +27201,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         search: _ctx.queryBuilderProps.search,
         columns: _ctx.queryBuilderProps.columns,
         "on-update": _ctx.setQueryBuilder,
-        meta: $props.users
+        meta: $props.users,
+        "class": "bg-gray-900 opacity-90 p-14 rounded"
       }, {
         head: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
@@ -27230,19 +27231,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             onClick: _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
               return _ctx.sortBy('has_arranged_transportation');
             }, ["prevent"]))
-          }, "has_arranged_transportation", 512
+          }, "has_arranged_transportation ", 512
           /* NEED_PATCH */
           ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('has_arranged_transportation')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
             onClick: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
               return _ctx.sortBy('chauffeur_name');
             }, ["prevent"]))
-          }, "chauffeur_name", 512
+          }, " chauffeur_name ", 512
           /* NEED_PATCH */
           ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('chauffeur_name')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
             onClick: _cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
               return _ctx.sortBy('has_medical_training');
             }, ["prevent"]))
-          }, "has_medical_training", 512
+          }, "has_medical_training ", 512
           /* NEED_PATCH */
           ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('has_medical_training')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
             onClick: _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
@@ -27254,31 +27255,31 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             onClick: _cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
               return _ctx.sortBy('other_tent_occupants');
             }, ["prevent"]))
-          }, "other_tent_occupants", 512
+          }, "other_tent_occupants ", 512
           /* NEED_PATCH */
           ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('other_tent_occupants')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
             onClick: _cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
               return _ctx.sortBy('dietary_preferences');
             }, ["prevent"]))
-          }, "dietary_preferences", 512
+          }, "dietary_preferences ", 512
           /* NEED_PATCH */
           ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('dietary_preferences')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
             onClick: _cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
               return _ctx.sortBy('has_blankets');
             }, ["prevent"]))
-          }, "has_blankets", 512
+          }, " has_blankets ", 512
           /* NEED_PATCH */
           ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('has_blankets')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
             onClick: _cache[11] || (_cache[11] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
               return _ctx.sortBy('initial_sustenance');
             }, ["prevent"]))
-          }, "initial_sustenance", 512
+          }, " initial_sustenance ", 512
           /* NEED_PATCH */
           ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('initial_sustenance')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
             onClick: _cache[12] || (_cache[12] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
               return _ctx.sortBy('departure_date');
             }, ["prevent"]))
-          }, "departure_date", 512
+          }, " departure_date ", 512
           /* NEED_PATCH */
           ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('departure_date')]]), _hoisted_2])];
         }),
@@ -27294,11 +27295,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             /* NEED_PATCH */
             ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('payment_received')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.arrives_on), 513
             /* TEXT, NEED_PATCH */
-            ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('arrives_on')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.has_arranged_transportation), 513
+            ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('arrives_on')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.has_arranged_transportation ? 'Yes' : 'No'), 513
             /* TEXT, NEED_PATCH */
             ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('has_arranged_transportation')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.chauffeur_name), 513
             /* TEXT, NEED_PATCH */
-            ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('chauffeur_name')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.has_medical_training), 513
+            ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('chauffeur_name')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.has_medical_training ? 'Yes' : 'No'), 513
             /* TEXT, NEED_PATCH */
             ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('has_medical_training')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.tent_size), 513
             /* TEXT, NEED_PATCH */
@@ -27306,7 +27307,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             /* TEXT, NEED_PATCH */
             ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('other_tent_occupants')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.dietary_preferences), 513
             /* TEXT, NEED_PATCH */
-            ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('dietary_preferences')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.has_blankets), 513
+            ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('dietary_preferences')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.has_blankets ? 'Yes' : 'No'), 513
             /* TEXT, NEED_PATCH */
             ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _ctx.showColumn('has_blankets')]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.initial_sustenance), 513
             /* TEXT, NEED_PATCH */
