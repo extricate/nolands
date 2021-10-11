@@ -99,7 +99,7 @@
         </div>
 
         <div class="mt-4">
-            <BreezeLabel for="departure_date" value="You will arrive on"/>
+            <BreezeLabel for="departure_date" value="You will depart on"/>
             <BreezeInput id="departure_date" type="date" class="mt-1 block w-full" v-model="form.departure_date"
                          autocomplete="departure_date"/>
         </div>
