@@ -1,5 +1,5 @@
 <template>
-    <Head title="Tell us your story"/>
+    <Head title="Tell us about your journey"/>
 
     <BreezeValidationErrors class="mb-4"/>
 
@@ -112,7 +112,7 @@
             <BreezeButton class="ml-4"
                           :class="{ 'opacity-25': form.processing, 'bg-green-600': form.success }"
                           :disabled="form.processing">
-                {{ form.processing ? 'Processing... ' : 'Update my story' }} <i :class="{'fas fa-spin fa-spinner ml-3': form.processing, 'fas fa-check ml-3': form.success}"></i>
+                {{ form.processing ? 'Processing... ' : 'Update my journey' }} <i :class="{'fas fa-spin fa-spinner ml-3': form.processing, 'fas fa-check ml-3': form.success}"></i>
             </BreezeButton>
         </div>
     </form>
@@ -168,7 +168,7 @@ export default {
         submit() {
             this.form.patch(this.route('story.update', this.user), {
                 onFinish: () => {
-                    this.message = 'Your story has been adjusted'
+                    this.message = 'Your journey has been adjusted'
                     this.form.success = true;
                 },
             })

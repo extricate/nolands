@@ -1,5 +1,5 @@
 <template>
-    <Head title="Your story"/>
+    <Head title="Your journey"/>
 
     <BreezeAuthenticatedLayout>
         <div class="py-12">
@@ -7,11 +7,11 @@
                 <div class="overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 pt-12 text-white">
                         <h2 class="font-serif text-2xl text-gray-100 pb-6">
-                            The Nolands story of {{ $page.props.auth.user.name }}
+                            The Nolands journey of {{ $page.props.auth.user.name }}
                         </h2>
 
                         <p>
-                            This is where your Nolands 2022 story starts. An epic adventure often resulting in the birth
+                            This is where your Nolands 2022 journey starts. An epic adventure often resulting in the birth
                             of new
                             friendships, passionate romance waiting to happen, and new heights and new highs to be
                             discovered.
@@ -22,7 +22,7 @@
                             legend.
                             If we need to reach you, we will do so through <span
                             class="font-serif">{{ $page.props.auth.user.email }}</span>.
-                            To help us fund this story, we require payment. You have
+                            To help us fund this journey, we require payment. You have
                             <span class="font-serif">
                             {{
                                     $page.props.auth.user.payment_received ? 'fulfilled your financial obligations to us' : 'not yet fulfilled your financial obligations to us'
@@ -31,7 +31,7 @@
                         </p>
 
                         <p>
-                            You plan to start your story by joining us at
+                            You plan to start your journey by joining us at
                             <span class="font-serif">{{
                                     $page.props.auth.user.arrival_date ?? 'a time which is to be determined later'
                                 }}</span>.
@@ -64,7 +64,7 @@
                         </p>
 
                         <p>
-                            Should there be some sort of medical issues during the story,
+                            Should there be some sort of medical issues during the journey,
                             <span class="font-serif">
                             {{
                                     $page.props.auth.user.has_medical_training ? 'we should definitely ask you for help' : 'we would be better off asking somebody else for help'
@@ -90,7 +90,7 @@
                         </p>
 
                         <p>
-                            A story such as ours to-be can never have too many old white bed covers.
+                            A journey such as ours to-be can never have too many old white bed covers.
                             <span class="font-serif">{{
                                     $page.props.auth.user.has_blankets ? 'You will be bringing some bedcovers with you' : 'Unfortunately you have none to spare at this time'
                                 }}</span>.
@@ -118,7 +118,7 @@
                         <Link
                             class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
                             :href="route('story.edit')">
-                            Tell my story differently
+                            Tell my journey differently
                         </Link>
                     </div>
                 </div>

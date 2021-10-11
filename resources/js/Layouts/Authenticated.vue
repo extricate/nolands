@@ -16,7 +16,7 @@
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-serif">
                                 <BreezeNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Your story
+                                    Your journey
                                 </BreezeNavLink>
                                 <BreezeNavLink :href="route('info')" :active="route().current('info')">
                                     Info
