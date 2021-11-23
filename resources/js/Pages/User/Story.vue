@@ -23,8 +23,8 @@
         </div>
 
         <div class="mt-4">
-            <BreezeLabel for="arrives_on" value="You will arrive on"/>
-            <BreezeInput id="arrives_on" type="date" class="mt-1 block w-full" v-model="form.arrives_on"
+            <BreezeLabel for="arrives_on" value="You will arrive on (thursday is only for the construction crew)"/>
+            <BreezeInput id="arrives_on" type="date" min="2022-06-02" max="2022-06-05" class="mt-1 block w-full" v-model="form.arrives_on"
                          autocomplete="arrives_on"/>
         </div>
 
@@ -50,7 +50,7 @@
 
         <div class="mt-4">
             <BreezeLabel for="tent_size"
-                         value="The size of your tent (number of people, to determine space on the grounds)"/>
+                         value="The size of your tent in # of people (to determine space on the grounds)"/>
             <BreezeInput id="tent_size" type="number" class="mt-1 block w-full" v-model="form.tent_size"
                          autocomplete="tent_size"/>
         </div>
@@ -100,7 +100,7 @@
 
         <div class="mt-4">
             <BreezeLabel for="departure_date" value="You will depart on"/>
-            <BreezeInput id="departure_date" type="date" class="mt-1 block w-full" v-model="form.departure_date"
+            <BreezeInput id="departure_date" min="2022-06-03" max="2022-06-05" type="date" class="mt-1 block w-full" v-model="form.departure_date"
                          autocomplete="departure_date"/>
         </div>
 

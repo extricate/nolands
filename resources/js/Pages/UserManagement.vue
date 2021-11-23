@@ -15,6 +15,9 @@
                     <tr>
                         <th @click.prevent="sortBy('name')">Name</th>
                         <th v-show="showColumn('email')" @click.prevent="sortBy('email')">Email</th>
+                        <th v-show="showColumn('is_approved')" @click.prevent="sortBy('is_approved')">
+                            Is approved
+                        </th>
                         <th v-show="showColumn('payment_received')" @click.prevent="sortBy('payment_received')">
                             Payment received
                         </th>
@@ -53,6 +56,14 @@
                     <tr v-for="user in users.data" :key="user.id">
                         <td>{{ user.name }}</td>
                         <td v-show="showColumn('email')">{{ user.email }}</td>
+                        <td v-show="showColumn('is_approved')">
+                            <template v-if="user.is_approved">
+                                <span class="bg-green-600 rounded p-1 text-white">APPROVED</span>
+                            </template>
+                            <template v-else>
+                                <span class="bg-red-600 rounded p-1 text-white">NOT APPROVED</span>
+                            </template>
+                        </td>
                         <td v-show="showColumn('payment_received')">
                             <template v-if="user.payment_received">
                                 <span class="bg-green-600 rounded p-1 text-white">PAID</span>

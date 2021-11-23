@@ -34,6 +34,7 @@ class User extends Authenticatable
         'has_blankets',
         'initial_sustenance',
         'departure_date',
+        'is_approved',
     ];
 
     /**
@@ -53,9 +54,9 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'arrives_on' => 'datetime:Y-m-d',
-        'departure_date' => 'datetime:Y-m-d',
-        'payment_received' => 'boolean',
+        'arrives_on'        => 'datetime:Y-m-d',
+        'departure_date'    => 'datetime:Y-m-d',
+        'payment_received'  => 'boolean',
     ];
 
 

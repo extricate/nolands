@@ -22,13 +22,6 @@
                          autocomplete="username"/>
         </div>
 
-        <div class="block mt-4">
-            <label class="flex items-center">
-                <BreezeCheckbox name="payment_received" v-model:checked="form.payment_received"/>
-                <span class="ml-2 text-sm text-gray-100">Payment received</span>
-            </label>
-        </div>
-
         <div class="mt-4">
             <BreezeLabel for="arrives_on" value="You will arrive on"/>
             <BreezeInput id="arrives_on" type="date" class="mt-1 block w-full" v-model="form.arrives_on"
@@ -111,6 +104,20 @@
                          autocomplete="departure_date"/>
         </div>
 
+        <div class="block mt-4">
+            <label class="flex items-center">
+                <BreezeCheckbox name="payment_received" v-model:checked="form.payment_received"/>
+                <span class="ml-2 text-sm text-gray-100">Payment received</span>
+            </label>
+        </div>
+
+        <div class="block mt-4">
+            <label class="flex items-center">
+                <BreezeCheckbox name="is_approved" v-model:checked="form.is_approved"/>
+                <span class="ml-2 text-sm text-gray-100">Is approved</span>
+            </label>
+        </div>
+
         <div class="flex items-center justify-between mt-4">
             <Link class="text-gray-100" :href="route('user.index')">Back</Link>
 
@@ -165,6 +172,7 @@ export default {
                 has_blankets: this.user.has_blankets,
                 initial_sustenance: this.user.initial_sustenance,
                 departure_date: this.user.departure_date,
+                is_approved: this.user.is_approved,
             }),
             message: '',
         }
