@@ -57,6 +57,7 @@ class User extends Authenticatable
         'arrives_on'        => 'datetime:Y-m-d',
         'departure_date'    => 'datetime:Y-m-d',
         'payment_received'  => 'boolean',
+        'is_approved'       => 'boolean',
     ];
 
 
