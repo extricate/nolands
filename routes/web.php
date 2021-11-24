@@ -3,7 +3,10 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserIndexController;
 use App\Http\Controllers\UserStoryController;
+use App\Mail\NewUserNeedsApproval;
+use App\Models\User;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
