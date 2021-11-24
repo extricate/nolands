@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class IsApproved
@@ -18,7 +17,7 @@ class IsApproved
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->is_approved) {
+        if (auth()->user()->is_approved || auth()->user()->can('skip-approval')) {
             return $next($request);
         }
 
