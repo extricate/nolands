@@ -46,6 +46,10 @@ Route::patch('/user/{user}/edit', [UserController::class, 'update'])
     ->middleware(['auth', 'verified', 'approved'])
     ->name('user.update');
 
+Route::delete('/user/{user}/delete', [UserController::class, 'delete'])
+    ->middleware(['auth', 'verified', 'role:admin'])
+    ->name('user.delete');
+
 Route::get('/story', [UserStoryController::class, 'edit'])
     ->middleware(['auth', 'verified', 'approved'])
     ->name('story.edit');

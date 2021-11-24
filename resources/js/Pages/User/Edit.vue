@@ -138,6 +138,17 @@
             </BreezeButton>
         </div>
     </form>
+
+    <div class="p-3 mt-5 bg-red-900 border-2 border-red-600 rounded">
+        <form @submit.prevent="submit">
+            <div class="block">
+                <div class="text-white font-serif">Delete this user</div>
+
+                <Button v-if="!this.isConfirmingDelete" @click="this.confirmDelete">Delete user permanently</Button>
+                <Button v-else @click="this.delete">Are you sure? Click again</Button>
+            </div>
+        </form>
+    </div>
 </template>
 
 <script>
@@ -148,11 +159,13 @@ import BreezeInput from '@/Components/Input.vue'
 import BreezeLabel from '@/Components/Label.vue'
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue'
 import {Head, Link} from '@inertiajs/inertia-vue3';
+import Button from "@/Components/Button";
 
 export default {
     layout: BreezeGuestLayout,
 
     components: {
+        Button,
         BreezeButton,
         BreezeInput,
         BreezeLabel,
@@ -186,6 +199,7 @@ export default {
                 is_admin: this.user.is_admin,
             }),
             message: '',
+            isConfirmingDelete: false,
         }
     },
 
@@ -197,6 +211,17 @@ export default {
                     this.form.success = true;
                 },
             })
+        },
+
+        confirmDelete() {
+            this.isConfirmingDelete = true
+            setTimeout(() => this.isConfirmingDelete = false, 3000)
+        },
+
+        delete() {
+            this.isConfirmingDelete = false
+
+            this.$inertia.delete(this.route('user.delete', this.user))
         }
     }
 }

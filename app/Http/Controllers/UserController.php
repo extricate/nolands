@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -41,5 +42,12 @@ class UserController extends Controller
         return Inertia::render('User/Edit', [
             'user' => $user
         ]);
+    }
+
+    public function delete(Request $request, User $user)
+    {
+        $user->delete();
+
+        return Redirect::to(route('user.index'));
     }
 }
