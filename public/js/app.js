@@ -26202,7 +26202,7 @@ var _withScopeId = function _withScopeId(n) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-5dc8cb58"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
 };
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"top-0 main-background w-full bg-gray-700\" data-v-5dc8cb58><div class=\"grid grid-cols-2 min-h-screen\" data-v-5dc8cb58><div class=\"flex-row mx-auto my-auto bg-gray-900 opacity-90 p-6\" data-v-5dc8cb58><h1 class=\"py-4 xl:text-8xl text-5xl text-gray-100 font-serif\" data-v-5dc8cb58> We are confirming you are truly cool enough to join Nolands </h1><div class=\"py-3 text-2xl text-gray-200 font-serif\" data-v-5dc8cb58> Check back soon. </div></div><div data-v-5dc8cb58></div></div></div>", 1);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"top-0 main-background w-full bg-gray-700\" data-v-5dc8cb58><div class=\"grid grid-cols-2 min-h-screen\" data-v-5dc8cb58><div class=\"flex-row mx-auto my-auto bg-gray-900 opacity-90 p-6\" data-v-5dc8cb58><h1 class=\"py-4 xl:text-8xl text-5xl text-gray-100 font-serif\" data-v-5dc8cb58> We are confirming you are truly cool enough to join Nolands </h1><div class=\"py-3 text-2xl text-gray-200 font-serif\" data-v-5dc8cb58> To prevent a live reenactment of the movie classic Project X, we manually verify whether people are really supposed to join our little get together. We&#39;ve been informed of your request to join, and will manually approve your account soon. </div></div><div data-v-5dc8cb58></div></div></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");

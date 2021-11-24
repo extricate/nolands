@@ -9,7 +9,9 @@
                 </h1>
 
                 <div class="py-3 text-2xl text-gray-200 font-serif">
-                    Check back soon.
+                    To prevent a live reenactment of the movie classic Project X, we manually verify whether people are
+                    really supposed to join our little get together. We've been informed of your request to join, and
+                    will manually approve your account soon.
                 </div>
             </div>
             <div></div>
