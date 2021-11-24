@@ -91,6 +91,7 @@ class UserIndexController extends Controller
                     false => 'No medical training',
                 ])
                 ->addColumns([
+                    'name'                        => 'Name',
                     'email'                       => 'Email address',
                     'is_approved'                 => 'Is approved',
                     'payment_received'            => 'Payment received',

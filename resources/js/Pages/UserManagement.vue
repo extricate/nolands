@@ -54,7 +54,10 @@
 
                 <template #body>
                     <tr v-for="user in users.data" :key="user.id">
-                        <td>{{ user.name }}</td>
+                        <td>
+                            {{ user.name }}
+                            <span class="px-1 ml-px rounded-md bg-green-100 text-black" v-if="user.is_admin">admin</span>
+                        </td>
                         <td v-show="showColumn('email')">{{ user.email }}</td>
                         <td v-show="showColumn('is_approved')">
                             <template v-if="user.is_approved">

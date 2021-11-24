@@ -118,6 +118,16 @@
             </label>
         </div>
 
+        <div class="p-3 my-2 bg-green-900 border-2 border-green-600 rounded">
+            <div class="block">
+                <div class="text-white font-serif">This user has admin rights on this website</div>
+                <label class="flex items-center">
+                    <BreezeCheckbox name="is_admin" v-model:checked="form.is_admin"/>
+                    <span class="ml-2 text-sm text-gray-100">Is admin</span>
+                </label>
+            </div>
+        </div>
+
         <div class="flex items-center justify-between mt-4">
             <Link class="text-gray-100" :href="route('user.index')">Back</Link>
 
@@ -173,6 +183,7 @@ export default {
                 initial_sustenance: this.user.initial_sustenance,
                 departure_date: this.user.departure_date,
                 is_approved: this.user.is_approved,
+                is_admin: this.user.is_admin,
             }),
             message: '',
         }

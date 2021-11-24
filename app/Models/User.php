@@ -47,6 +47,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $appends = array('is_admin');
+
     /**
      * The attributes that should be cast.
      *
@@ -59,6 +61,11 @@ class User extends Authenticatable
         'payment_received'  => 'boolean',
         'is_approved'       => 'boolean',
     ];
+
+    public function getIsAdminAttribute()
+    {
+        return $this->hasRole('admin');
+    }
 
 
 }

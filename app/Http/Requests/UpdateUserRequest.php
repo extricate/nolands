@@ -41,6 +41,7 @@ class UpdateUserRequest extends FormRequest
             'has_blankets'                => ['boolean', 'nullable'],
             'initial_sustenance'          => ['string', 'nullable'],
             'departure_date'              => ['date', 'nullable'],
+            'is_admin'                    => ['boolean', 'nullable']
         ];
     }
 }
