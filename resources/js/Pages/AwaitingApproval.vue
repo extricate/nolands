@@ -1,8 +1,8 @@
 <template>
     <Head title="We are verifying whether you are indeed as awesome as you say"/>
 
-    <div class="top-0 main-background w-full bg-gray-700">
-        <div class="grid grid-cols-2 min-h-screen">
+    <div class="top-0 main-background w-full bg-gray-700 overflow-y-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
             <div class="flex-row mx-auto my-auto bg-gray-900 opacity-90 p-6">
                 <h1 class="py-4 xl:text-8xl text-5xl text-gray-100 font-serif">
                     We are confirming you are truly cool enough to join Nolands
@@ -14,7 +14,6 @@
                     will manually approve your account soon.
                 </div>
             </div>
-            <div></div>
         </div>
     </div>
 </template>

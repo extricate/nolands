@@ -1,6 +1,6 @@
 <template>
     <div class="top-0 main-background w-full bg-gray-700">
-        <div class="grid grid-cols-2 min-h-screen">
+        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
             <div class="flex-row mx-auto my-auto bg-gray-900 opacity-90 p-6">
                 <h1 class="py-4 xl:text-8xl text-5xl text-gray-100 font-serif">
                     Nolands 2022
