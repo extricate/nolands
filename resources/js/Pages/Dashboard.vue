@@ -83,7 +83,7 @@
 
                         <p>
                             During this journey, you will be provided with sustenance of various shapes and sorts. You
-                            have indicated that you have
+                            have indicated that you have the following dietary preferences:
                             <span class="font-serif">{{
                                     $page.props.auth.user.dietary_preferences ?? 'no specific dietary preferences'
                                 }}</span>.
