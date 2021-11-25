@@ -2,8 +2,8 @@
 
 namespace App\Mail;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -14,11 +14,11 @@ class UserIsApproved extends Mailable
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param User $user
      */
-    public function __construct()
+    public function __construct(public User $user)
     {
-        //
+        $this->subject = 'We have confirmed you are a Nolands 2022 legend';
     }
 
     /**
@@ -28,6 +28,6 @@ class UserIsApproved extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->markdown('mail.user-approved');
     }
 }

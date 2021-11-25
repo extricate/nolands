@@ -3,16 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUserRequest;
+use App\Mail\UserIsApproved;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class UserController extends Controller
 {
     /**
-     * @param  User  $user
+     * @param User $user
      * @return \Inertia\Response
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
@@ -26,8 +28,8 @@ class UserController extends Controller
     }
 
     /**
-     * @param  Request  $request
-     * @param  User  $user
+     * @param Request $request
+     * @param User $user
      * @return \Inertia\Response
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
@@ -37,6 +39,12 @@ class UserController extends Controller
 
         if ($request->has('is_admin')) {
             $user->assignRole('admin');
+        }
+
+        if ($request->has('is_approved') && $user->is_approved && !$user->approved_on) {
+            $user->update(['approved_on' => now()]);
+
+            Mail::to($user)->send(new UserIsApproved($user));
         }
 
         return Inertia::render('User/Edit', [

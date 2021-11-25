@@ -4,7 +4,7 @@
 A new Nolander registered with the name {{ $user->name }} and email {{ $user->email }}
 
 @component('mail::button', ['url' => 'https://nolands.live/users'])
-    Approve this Nolander?
+Approve this Nolander?
 @endcomponent
 
 Love,<br>
