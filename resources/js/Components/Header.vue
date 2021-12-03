@@ -7,7 +7,8 @@
                 </h1>
 
                 <div class="py-3 text-2xl text-gray-200 font-serif">
-                    Set to be just a little bigger and badder than the previous edition, Nolands 2022 is gonna blow your mind
+                    Set to be just a little bigger and badder than the previous edition, Nolands 2022 is gonna blow your
+                    mind
                 </div>
 
                 <div class="py-3 text-2xl text-gray-200">
@@ -35,6 +36,6 @@ import {Link} from '@inertiajs/inertia-vue3';
 export default {
     components: {
         Link,
-    }
+    },
 }
 </script>

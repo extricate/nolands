@@ -3,6 +3,33 @@
 
     <BreezeAuthenticatedLayout>
         <div class="py-12">
+            <div v-if="$page.props.auth.user.payment_received">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="bg-green-600 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="font-bold font-serif p-6 bg-green-600">
+                            PAYMENT RECEIVED & PROCESSED
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div v-else>
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="bg-red-600 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="font-bold font-serif p-6 bg-red-600">
+                            PAYMENT NOT YET RECEIVED
+                            or not yet processed
+                            <a class="block underline text-white font-normal" rel="noreferrer nofollow noopen"
+                               :href="this.$page.props.services.payment_link">
+                                Use this Tikkie link to pay
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="py-12">
             <div class="text-x bg-gray-900 opacity-90 rounded text-xl max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 pt-12 text-white">

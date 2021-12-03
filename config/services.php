@@ -30,4 +30,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'payment' => [
+        'link' => env('PAYMENT_LINK', 'https://tikkie.me/pay/lncf68l1sao6hl42ohh5')
+    ],
+
 ];
