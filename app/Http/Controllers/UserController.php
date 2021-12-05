@@ -37,7 +37,7 @@ class UserController extends Controller
     {
         $user->update(Arr::except($request->validated(), 'is_admin'));
 
-        if ($request->has('is_admin')) {
+        if ($request->get('is_admin')) {
             $user->assignRole('admin');
         }
 
