@@ -34,6 +34,9 @@ class User extends Authenticatable
         'initial_sustenance',
         'departure_date',
         'is_approved',
+        'team_choice_first',
+        'team_choice_second',
+        'team_choice_third',
     ];
 
     /**

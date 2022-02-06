@@ -31,7 +31,7 @@ return [
     ],
 
     'payment' => [
-        'link' => env('PAYMENT_LINK', 'https://tikkie.me/pay/lncf68l1sao6hl42ohh5')
+        'link' => env('MIX_PAYMENT_LINK', 'https://tikkie.me/pay/lncf68l1sao6hl42ohh5')
     ],
 
 ];

@@ -41,7 +41,10 @@ class UpdateUserRequest extends FormRequest
             'has_blankets'                => ['boolean', 'nullable'],
             'initial_sustenance'          => ['string', 'nullable'],
             'departure_date'              => ['date', 'nullable'],
-            'is_admin'                    => ['boolean', 'nullable']
+            'is_admin'                    => ['boolean', 'nullable'],
+            'team_choice_first'           => ['integer', 'exists:teams,id'],
+            'team_choice_second'          => ['integer', 'exists:teams,id'],
+            'team_choice_third'           => ['integer', 'exists:teams,id'],
         ];
     }
 }

@@ -24,18 +24,21 @@ class UpdateUserStoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['string', 'max:255'],
-            'email' => ['string', 'email', 'max:255', 'unique:users,email,' . auth()->user()->id],
-            'arrives_on' => ['date', 'nullable'],
+            'name'                        => ['string', 'max:255'],
+            'email'                       => ['string', 'email', 'max:255', 'unique:users,email,'.auth()->user()->id],
+            'arrives_on'                  => ['date', 'nullable'],
             'has_arranged_transportation' => ['boolean'],
-            'chauffeur_name' => ['string', 'max:255', 'nullable'],
-            'has_medical_training' => ['boolean'],
-            'tent_size' => ['integer', 'nullable'],
-            'other_tent_occupants' => ['nullable'],
-            'dietary_preferences' => ['nullable'],
-            'has_blankets' => ['boolean', 'nullable'],
-            'initial_sustenance' => ['string', 'nullable'],
-            'departure_date' => ['date', 'nullable'],
+            'chauffeur_name'              => ['string', 'max:255', 'nullable'],
+            'has_medical_training'        => ['boolean'],
+            'tent_size'                   => ['integer', 'nullable'],
+            'other_tent_occupants'        => ['nullable'],
+            'dietary_preferences'         => ['nullable'],
+            'has_blankets'                => ['boolean', 'nullable'],
+            'initial_sustenance'          => ['string', 'nullable'],
+            'departure_date'              => ['date', 'nullable'],
+            'team_choice_first'           => ['nullable', 'integer', 'exists:teams,id'],
+            'team_choice_second'          => ['nullable', 'integer', 'exists:teams,id'],
+            'team_choice_third'           => ['nullable', 'integer', 'exists:teams,id'],
         ];
     }
 }

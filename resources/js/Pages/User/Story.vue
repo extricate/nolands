@@ -24,7 +24,8 @@
 
         <div class="mt-4">
             <BreezeLabel for="arrives_on" value="You will arrive on (thursday is only for the construction crew)"/>
-            <BreezeInput id="arrives_on" type="date" min="2022-06-02" max="2022-06-05" class="mt-1 block w-full" v-model="form.arrives_on"
+            <BreezeInput id="arrives_on" type="date" min="2022-06-02" max="2022-06-05" class="mt-1 block w-full"
+                         v-model="form.arrives_on"
                          autocomplete="arrives_on"/>
         </div>
 
@@ -100,7 +101,8 @@
 
         <div class="mt-4">
             <BreezeLabel for="departure_date" value="You will depart on"/>
-            <BreezeInput id="departure_date" min="2022-06-03" max="2022-06-06" type="date" class="mt-1 block w-full" v-model="form.departure_date"
+            <BreezeInput id="departure_date" min="2022-06-03" max="2022-06-06" type="date" class="mt-1 block w-full"
+                         v-model="form.departure_date"
                          autocomplete="departure_date"/>
         </div>
 
@@ -112,10 +114,13 @@
             <BreezeButton class="ml-4"
                           :class="{ 'opacity-25': form.processing, 'bg-green-600': form.success }"
                           :disabled="form.processing">
-                {{ form.processing ? 'Processing... ' : 'Update my journey' }} <i :class="{'fas fa-spin fa-spinner ml-3': form.processing, 'fas fa-check ml-3': form.success}"></i>
+                {{ form.processing ? 'Processing... ' : 'Update my journey' }} <i
+                :class="{'fas fa-spin fa-spinner ml-3': form.processing, 'fas fa-check ml-3': form.success}"></i>
             </BreezeButton>
         </div>
     </form>
+
+    <TeamPreference :teams="teams" :user="user"/>
 </template>
 
 <script>
@@ -126,11 +131,13 @@ import BreezeInput from '@/Components/Input.vue'
 import BreezeLabel from '@/Components/Label.vue'
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue'
 import {Head, Link} from '@inertiajs/inertia-vue3';
+import TeamPreference from "@/Components/TeamPreference";
 
 export default {
     layout: BreezeGuestLayout,
 
     components: {
+        TeamPreference,
         BreezeButton,
         BreezeInput,
         BreezeLabel,
@@ -142,6 +149,7 @@ export default {
 
     props: {
         user: Object,
+        teams: Object,
     },
 
     data() {
@@ -167,6 +175,8 @@ export default {
     methods: {
         submit() {
             this.form.patch(this.route('story.update', this.user), {
+                preserveScroll: true,
+                resetOnSuccess: false,
                 onFinish: () => {
                     this.message = 'Your journey has been adjusted'
                     this.form.success = true;
