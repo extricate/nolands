@@ -24036,6 +24036,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     select: function select(teamId) {
+      var choices = [this.user.team_choice_first, this.user.team_choice_second, this.user.team_choice_third];
+
+      if (choices.includes(teamId)) {
+        // you already have this preference selected
+        return;
+      }
+
       if (!this.user.team_choice_first) {
         this.form.team_choice_first = teamId;
         this.submit();
@@ -25266,7 +25273,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_2 = {
   "class": "cursor-pointer"
 };
-var _hoisted_3 = ["onClick"];
+var _hoisted_3 = ["onClick", "title"];
 var _hoisted_4 = {
   "class": "uppercase font-bold flex flex-inline justify-center items-center"
 };
@@ -25285,19 +25292,30 @@ var _hoisted_7 = {
 var _hoisted_8 = {
   "class": "flex justify-center"
 };
+var _hoisted_9 = {
+  key: 0,
+  "class": "text-sm p-1"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.teams, function (team) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-      "class": "bg-gray-100 mb-2 rounded p-2",
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
+        'bg-green-200': [$data.form.team_choice_first, $data.form.team_choice_second, $data.form.team_choice_third].includes(function (id) {
+          return team.id === id;
+        })
+      }, "bg-gray-100 mb-2 rounded p-2"]),
       onClick: function onClick($event) {
         return $options.select(team.id);
-      }
+      },
+      title: team.description
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [$data.form.team_choice_first === team.id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, " first ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.form.team_choice_second === team.id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, " second ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.form.team_choice_third === team.id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, " third ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(team.name), 1
     /* TEXT */
     )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(team.category), 1
     /* TEXT */
-    )], 8
-    /* PROPS */
+    ), $data.form.team_choice_first === team.id || $data.form.team_choice_second === team.id || $data.form.team_choice_third === team.id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(team.description), 1
+    /* TEXT */
+    )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 10
+    /* CLASS, PROPS */
     , _hoisted_3)]);
   }), 256
   /* UNKEYED_FRAGMENT */

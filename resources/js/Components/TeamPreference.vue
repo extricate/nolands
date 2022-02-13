@@ -4,7 +4,9 @@
         will be put in the cleanup crew.
     </div>
     <div v-for="team in teams" class="cursor-pointer">
-        <div class="bg-gray-100 mb-2 rounded p-2" @click="select(team.id)">
+        <div
+            :class="{'bg-green-200': [form.team_choice_first, form.team_choice_second, form.team_choice_third].includes(id => team.id === id)}"
+            class="bg-gray-100 mb-2 rounded p-2" @click="select(team.id)" :title="team.description">
             <div class="uppercase font-bold flex flex-inline justify-center items-center">
                 <div class="rounded-full bg-green-200 items-center px-2 mr-2 text-sm"
                      v-if="form.team_choice_first === team.id">
@@ -22,6 +24,13 @@
             </div>
 
             <div class="flex justify-center">{{ team.category }}</div>
+
+            <div class="text-sm p-1"
+                 v-if="form.team_choice_first === team.id ||
+                     form.team_choice_second === team.id ||
+                     form.team_choice_third === team.id">
+                {{ team.description }}
+            </div>
         </div>
     </div>
 
@@ -47,6 +56,12 @@ export default {
 
     methods: {
         select(teamId) {
+            const choices = [this.user.team_choice_first, this.user.team_choice_second, this.user.team_choice_third]
+
+            if (choices.includes(teamId)) { // you already have this preference selected
+                return
+            }
+
             if (!this.user.team_choice_first) {
                 this.form.team_choice_first = teamId
                 this.submit();
