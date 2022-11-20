@@ -42,7 +42,7 @@
             </Link>
 
             <BreezeButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Join Nolands 2022
+                Join Nolands 2023
             </BreezeButton>
         </div>
     </form>

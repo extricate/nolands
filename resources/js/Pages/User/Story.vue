@@ -24,7 +24,7 @@
 
         <div class="mt-4">
             <BreezeLabel for="arrives_on" value="You will arrive on (thursday is only for the construction crew)"/>
-            <BreezeInput id="arrives_on" type="date" min="2022-06-02" max="2022-06-05" class="mt-1 block w-full"
+            <BreezeInput id="arrives_on" type="date" min="2023-06-02" max="2023-06-05" class="mt-1 block w-full"
                          v-model="form.arrives_on"
                          autocomplete="arrives_on"/>
         </div>
@@ -85,7 +85,7 @@
                 class="w-full bg-gray-400 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
                 v-model="form.initial_sustenance">
                 <option class="w-100" value="">
-                    I do not know what I like
+                    Don't care
                 </option>
                 <option value="beer">
                     Beer
@@ -101,13 +101,13 @@
 
         <div class="mt-4">
             <BreezeLabel for="departure_date" value="You will depart on"/>
-            <BreezeInput id="departure_date" min="2022-06-03" max="2022-06-06" type="date" class="mt-1 block w-full"
+            <BreezeInput id="departure_date" min="2023-06-03" max="2023-06-06" type="date" class="mt-1 block w-full"
                          v-model="form.departure_date"
                          autocomplete="departure_date"/>
         </div>
 
         <div class="flex items-center justify-between mt-4">
-            <Link class="text-gray-100" :href="route('dashboard')">
+            <Link class="text-gray-100 p-3 rounded hover:bg-gray-500" :href="route('dashboard')">
                 <i class="fas fa-arrow-left mr-3"></i> Back
             </Link>
 
@@ -126,12 +126,12 @@
 <script>
 import BreezeButton from '@/Components/Button.vue'
 import BreezeGuestLayout from '@/Layouts/Guest.vue'
-import BreezeCheckbox from '@/Components/Checkbox'
+import BreezeCheckbox from '@/Components/Checkbox.vue'
 import BreezeInput from '@/Components/Input.vue'
 import BreezeLabel from '@/Components/Label.vue'
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue'
 import {Head, Link} from '@inertiajs/inertia-vue3';
-import TeamPreference from "@/Components/TeamPreference";
+import TeamPreference from "@/Components/TeamPreference.vue";
 
 export default {
     layout: BreezeGuestLayout,

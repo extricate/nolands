@@ -18,7 +18,7 @@ class UserIsApproved extends Mailable
      */
     public function __construct(public User $user)
     {
-        $this->subject = 'We have confirmed you are a Nolands 2022 legend';
+        $this->subject = 'We have confirmed you are a Nolands 2023 legend';
     }
 
     /**

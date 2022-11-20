@@ -23,10 +23,10 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
-        'canLogin'       => Route::has('login'),
-        'canRegister'    => Route::has('register'),
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
-        'phpVersion'     => PHP_VERSION,
+        'phpVersion' => PHP_VERSION,
     ]);
 });
 
@@ -59,11 +59,13 @@ Route::patch('/story/{user}', [UserStoryController::class, 'update'])
     ->name('story.update');
 
 Route::get('/info', function () {
-    return Inertia::render('Info');
+    return redirect()->to(route('posts.index'));
 })->middleware(['auth', 'verified', 'approved'])->name('info');
 
 Route::get('/awaiting-approval', function () {
     return Inertia::render('AwaitingApproval');
 })->middleware(['auth'])->name('approval');
 
-require __DIR__.'/auth.php';
+Route::resource('posts', \App\Http\Controllers\PostController::class);
+
+require __DIR__ . '/auth.php';

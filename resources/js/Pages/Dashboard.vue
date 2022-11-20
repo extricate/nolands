@@ -3,34 +3,7 @@
 
     <BreezeAuthenticatedLayout>
         <div class="py-12">
-            <div v-if="$page.props.auth.user.payment_received">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-green-600 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div class="font-bold font-serif p-6 bg-green-600">
-                            PAYMENT RECEIVED & PROCESSED
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div v-else>
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-red-600 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div class="font-bold font-serif p-6 bg-red-600">
-                            PAYMENT NOT YET RECEIVED
-                            or not yet processed
-                            <a class="block underline text-white font-normal" rel="noreferrer nofollow noopen"
-                               :href="this.$page.props.services.payment_link">
-                                Use this Tikkie link to pay
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="py-12">
-            <div class="text-x bg-gray-900 opacity-90 rounded text-xl max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="text-x bg-gray-900 opacity-90 max-w-prose rounded text-xl max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 pt-12 text-white">
                         <h2 class="font-serif text-2xl text-gray-100 pb-6">
@@ -38,7 +11,8 @@
                         </h2>
 
                         <p>
-                            This is where your Nolands 2022 journey starts. An epic adventure often resulting in the birth
+                            This is where your Nolands 2023 journey starts. An epic adventure often resulting in the
+                            birth
                             of new
                             friendships, passionate romance waiting to happen, and new heights and new highs to be
                             discovered.
@@ -104,7 +78,7 @@
                             <span class="font-serif">{{ $page.props.auth.user.tent_size ?? 0 }}</span> people.
                             You are planning on sharing your canvas mansion with
                             <span class="font-serif">{{
-                                    $page.props.auth.user.other_tent_occupants ?? 'nobody else, initially'
+                                    $page.props.auth.user.other_tent_occupants ?? 'nobody else, for now'
                                 }}</span>.
                         </p>
 

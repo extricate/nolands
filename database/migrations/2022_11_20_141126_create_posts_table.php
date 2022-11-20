@@ -12,9 +12,15 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('reference')->nullable();
-            $table->date('birthdate')->nullable();
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('title');
+            $table->longText('body');
+
+            $table->unsignedInteger('user_id')->nullable();
+
+            $table->timestamps();
         });
     }
 
@@ -25,8 +31,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['reference', 'birthdate']);
-        });
+        Schema::dropIfExists('posts');
     }
 };

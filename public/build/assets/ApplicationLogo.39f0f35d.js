@@ -1,0 +1,1 @@
+import{_ as o}from"./_plugin-vue_export-helper.cdc0426e.js";import{o as c,c as e}from"./app.655e6c94.js";const t={},r={src:"/logo.png",class:"logo mt-1 p-1 w-auto",alt:"Nolands"};function s(n,a){return c(),e("img",r)}const p=o(t,[["render",s]]);export{p as B};
