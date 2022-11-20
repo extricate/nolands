@@ -18,7 +18,7 @@
 <script>
 import BreezeApplicationLogo from '@/Components/ApplicationLogo.vue'
 import {Link} from '@inertiajs/inertia-vue3';
-import Notification from '@/Components/Notification'
+import Notification from '@/Components/Notification.vue'
 
 export default {
     components: {

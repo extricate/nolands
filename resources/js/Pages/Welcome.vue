@@ -89,7 +89,7 @@
 
 <script>
 import {Head, Link} from '@inertiajs/inertia-vue3';
-import Header from '../Components/Header';
+import Header from '../Components/Header.vue';
 
 export default {
     components: {
