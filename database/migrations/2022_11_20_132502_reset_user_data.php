@@ -24,7 +24,7 @@ return new class extends Migration
                     'has_arranged_transport' => false,
                     'arrives_on' => null,
                     'chauffeur_name' => null,
-                    'has_medical_training' => null,
+                    'has_medical_training' => false,
                     'tent_size' => null,
                     'other_tent_occupants' => null,
                     'dietary_preferences' => null,
