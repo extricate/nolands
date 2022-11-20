@@ -2,7 +2,7 @@
     <Head title="Dashboard"/>
 
     <BreezeAuthenticatedLayout>
-        <div class="p-14 grid grid-cols-1 md:grid-cols-3">
+        <div class="p-14 grid grid-cols-1 md:grid-cols-3 gap-2">
             <User v-for="user in users" :user="user"/>
         </div>
     </BreezeAuthenticatedLayout>

@@ -1,6 +1,6 @@
 <template>
     <div class="bg-gray-900 opacity-90 p-4 text-white rounded flex flex-col gap-2 relative">
-        <div>
+        <div class="text-xl">
             {{ user.name }}
         </div>
 
@@ -18,9 +18,13 @@
         }" class="flex rounded p-1">
                 {{ user.is_approved ? 'Approved' : 'Unapproved' }}
             </div>
+
+            <div v-if="user.is_admin" class="flex rounded p-1 bg-yellow-600">
+                Beheerder
+            </div>
         </div>
 
-        <InertiaLink class="hover:text-gray-300" :href="route('user.edit', props.user)">Bewerk</InertiaLink>
+        <InertiaLink class="flex hover:text-gray-300" :href="route('user.edit', props.user)">Edit</InertiaLink>
     </div>
 </template>
 
