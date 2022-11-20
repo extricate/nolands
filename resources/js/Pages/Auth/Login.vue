@@ -1,4 +1,5 @@
 <template>
+    <Head title="Log in" />
 
     <BreezeValidationErrors class="mb-4" />
 
