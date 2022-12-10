@@ -45,8 +45,7 @@ class UpdateUserRequest extends FormRequest
             'is_admin' => ['boolean', 'nullable'],
             'team_choice_first' => ['integer', 'exists:teams,id'],
             'team_choice_second' => ['integer', 'exists:teams,id'],
-            'team_choice_third' => ['integer', 'exists:teams,id'],
-            'avatar' => ['sometimes', 'file', 'mimes:jpeg,jpg,png,gif', 'max:500']
+            'team_choice_third' => ['integer', 'exists:teams,id']
         ];
     }
 }

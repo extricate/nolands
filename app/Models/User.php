@@ -68,6 +68,7 @@ class User extends Authenticatable implements HasMedia
             ->addMediaCollection('avatars')
             ->useFallbackUrl('/images/default-avatar.webp')
             ->useFallbackPath(public_path('/images/default-avatar.webpg'))
+            ->acceptsMimeTypes(['image/jpg', 'image/jpeg', 'image/png', 'image/gif'])
             ->singleFile();
     }
 

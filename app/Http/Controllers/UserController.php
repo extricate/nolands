@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserAvatarRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Mail\UserIsApproved;
 use App\Models\User;
@@ -52,7 +53,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function setAvatar(Request $request, User $user)
+    public function setAvatar(UpdateUserAvatarRequest $request, User $user)
     {
         if (auth()->user()->id === $user->id) {
             if ($request->hasFile('avatar')) {

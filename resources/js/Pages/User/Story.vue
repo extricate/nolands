@@ -57,12 +57,12 @@
                                     </span>
                                     </label>
 
-                                    <button
+                                    <div
                                         @click="submitAvatar($page.props.auth.user)"
-                                        class="w-full mt-2 font-serif font-normal tracking-widest text-white cursor-pointer p-3 rounded bg-gray-800 hover:bg-gray-500">
+                                        class="cursor-pointer text-center w-full mt-2 font-serif font-normal tracking-widest text-white cursor-pointer p-3 rounded bg-gray-800 hover:bg-gray-500">
                                         <span v-if="form.recentlySuccessful">Picture changed</span>
                                         <span v-else>Save avatar</span>
-                                    </button>
+                                    </div>
                                 </div>
 
                             </div>
@@ -252,11 +252,7 @@ export default {
 
         submitAvatar(user) {
             this.form.post(route('user.avatar', user), {
-                forceFormData: true,
-                onSuccess: () => {
-                    this.message = 'Avatar uploaded'
-                    this.form.success = true;
-                },
+                forceFormData: true
             })
         },
 

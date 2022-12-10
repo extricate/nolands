@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\File;
 
 class UpdateUserStoryRequest extends FormRequest
 {
@@ -39,7 +40,7 @@ class UpdateUserStoryRequest extends FormRequest
             'departure_date' => ['date', 'nullable'],
             'team_choice_first' => ['nullable', 'integer', 'exists:teams,id'],
             'team_choice_second' => ['nullable', 'integer', 'exists:teams,id'],
-            'team_choice_third' => ['nullable', 'integer', 'exists:teams,id'],
+            'team_choice_third' => ['nullable', 'integer', 'exists:teams,id']
         ];
     }
 }
