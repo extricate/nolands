@@ -1,0 +1,12 @@
+{
+    "en": {
+        "time": {
+            "years": "{years} year | {years} years",
+            "months": "{months} month | {months} months",
+            "days": "{days} day | {days} days",
+            "hours": "{hours} hour | {hours} hours",
+            "minutes": "{minutes} minute | {minutes} minutes",
+            "seconds": "{seconds} second | {seconds} seconds"
+        }
+    }
+}

@@ -1,77 +1,83 @@
 <template>
-    <div class="selected bg-green-900 my-6 rounded">
-        <div class="text-white font-bold mt-3 text-2xl uppercase p-6">
+    <div class="selected my-6 rounded">
+        <div class="text-white font-bold mt-3 text-2xl uppercase py-6">
             You may indicate three preferences for the team you will be joining.
             <div class="text-base">
-                If we do not receive your preference you will be put in the cleanup crew.
+                We will distribute the teams based on these preferences.
+                If you do not provide a preference you will be put in the cleanup crew.
             </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm justify-between bg-green-900 rounded p-6">
+        <div name="fade"
+             tag="div"
+             class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm justify-between rounded">
             <div
-                v-for="team in this.teams.filter(team => [this.form.team_choice_first, this.form.team_choice_second, this.form.team_choice_third].includes(team.id))"
+                :key="index"
+                v-for="(team, index) in this.teams.filter(team => [this.form.team_choice_first, this.form.team_choice_second, this.form.team_choice_third].includes(team.id))"
                 @click="unselect(team.id)"
-                class="bg-gray-900 rounded-xl p-4 hover:bg-gray-800 text-white"
-                :class="{
-                'bg-green-200 border border-green-500': isSelected(team.id)
-            }">
-                <div
-                    class="flex flex-col"
-                    :title="team.description">
+                class="flex bg-gray-900/90 rounded-xl items-center justify-center p-4 cursor-pointer hover:bg-gray-800 text-white border-2 border-green-800">
+                <div class="flex flex-wrap xl:flex-nowrap items-center gap-3"
+                     :title="team.description">
 
-                    <div class="flex gap-1 flex-wrap">
-                        <div
-                            class="flex truncate text-ellipsis rounded-full bg-green-900 items-center px-2 mr-2 text-sm"
-                            v-if="this.form.team_choice_first === team.id">
-                            First choice
-                        </div>
-                        <div
-                            class="flex truncate text-ellipsis rounded-full bg-green-700 items-center px-2 mr-2 text-sm"
-                            v-if="this.form.team_choice_second === team.id">
-                            Second choice
-                        </div>
-                        <div
-                            class="flex truncate text-ellipsis rounded-full bg-green-500 items-center px-2 mr-2 text-sm"
-                            v-if="this.form.team_choice_third === team.id">
-                            Third choice
-                        </div>
-                        <div class="flex text-xl uppercase font-bold">
+                    <div class="flex justify-start items-center text-white text-8xl font-serif mt-2">
+                        <div v-if="this.form.team_choice_first === team.id">1</div>
+                        <div v-if="this.form.team_choice_second === team.id">2</div>
+                        <div v-if="this.form.team_choice_third === team.id">3</div>
+
+                        <div class="flex text-4xl uppercase font-normal font-serif self-center ml-6 -mt-1">
                             {{ team.name }}
                         </div>
                     </div>
 
+                    <div class="flex flex-wrap gap-1 text-sm justify-end items-center overflow-hidden">
+                        <Chip>
+                            <i
+                                :class="{
+                            'fa-burger-soda': team.category === 'eets & drinks',
+                            'fa-party-horn': team.category.includes('entertainment'),
+                            'fa-house': team.category.includes('locatie'),
+                            'fa-vacuum': team.category.includes('schoonmaak'),
+                            }"
+                                class="fas mr-3"/>
 
-                    <div class="flex flex-wrap gap-4 my-2 text-sm justify-between">
-                        <div class="flex justify-center py-1 px-2 bg-gray-700 rounded">
-                            Group category {{ team.category }}
-                        </div>
-                        <div class="flex justify-center py-1 px-2 bg-gray-700 rounded">
-                            Group of {{ team.required_people_amount }} Nolanders
-                        </div>
-                        <div class="flex justify-center py-1 px-2 bg-gray-700 rounded">
-                            Arrive by {{ team.arrive_by || 'zaterdag' }}
-                        </div>
+                            {{ team.category }}
+                        </Chip>
+                        <Chip>
+                            <i class="fas fa-people mr-3"/> Group of {{ team.required_people_amount }} Nolanders
+                        </Chip>
+                        <Chip>
+                            <i class="fas fa-calendar mr-3"/> Arrive by {{ team.arrive_by || 'zaterdag' }}
+                        </Chip>
                     </div>
-
                 </div>
             </div>
             <div
+                :key="index"
                 v-for="(unselected, index) in unselectedTeams">
-                <div class="bg-gray-900 rounded-xl h-36 flex justify-center items-center text-white text-3xl font-bold">
+                <div
+                    class="bg-gray-900 rounded-xl h-36 flex justify-center items-center text-white text-3xl font-bold">
                     {{ unselected }}
                 </div>
             </div>
         </div>
 
-        <div class="actions flex gap-4 justify-between p-6">
-            <button class="text-white cursor-pointer p-3 rounded bg-gray-800 hover:bg-gray-700" @click="submit">
+        <div class="actions flex gap-4 justify-between py-6">
+            <Transition name="fade">
+                <Button class="text-white cursor-pointer p-3 rounded bg-gray-800 hover:bg-gray-700" @click="submit">
                 <span v-if="this.form.recentlySuccessful">
                     Team preference updated
+                    <i class="fas fa-check ml-3"></i>
                 </span>
 
-                <span v-else>
+                    <span v-else>
                     Save preferences
                 </span>
-            </button>
+
+                    <span v-if="this.form.processing">
+                        <i class="fas fa-spinner-third animate-spin ml-3"></i>
+                    </span>
+                </Button>
+            </Transition>
+
 
             <div class="text-white text-center cursor-pointer p-3 rounded bg-gray-600 hover:bg-red-500" @click="clear">
                 Reset preferences
@@ -81,9 +87,11 @@
 
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div v-for="team in teams" class="cursor-pointer bg-gray-900 rounded-xl p-4 hover:bg-gray-800 text-white"
-             @click="select(team.id)"
-             :class="{
+        <div
+            v-for="team in teams.filter(team => ![this.form.team_choice_first, this.form.team_choice_second, this.form.team_choice_third].includes(team.id))"
+            class="cursor-pointer bg-gray-900 rounded-xl p-4 hover:bg-gray-800 text-white"
+            @click="select(team.id)"
+            :class="{
                 'bg-green-200 border border-green-500': isSelected(team.id)
             }">
             <div
@@ -91,20 +99,8 @@
                 class="flex flex-col"
                 :title="team.description">
 
-                <div class="flex flex-inline">
-                    <div class="flex rounded-full bg-green-900 items-center px-2 mr-2 text-sm"
-                         v-if="form.team_choice_first === team.id">
-                        First choice
-                    </div>
-                    <div class="flex rounded-full bg-green-700 items-center px-2 mr-2 text-sm"
-                         v-if="form.team_choice_second === team.id">
-                        Second choice
-                    </div>
-                    <div class="flex rounded-full bg-green-500 items-center px-2 mr-2 text-sm"
-                         v-if="form.team_choice_third === team.id">
-                        Third choice
-                    </div>
-                    <div class="text-xl uppercase font-bold">
+                <div class="flex gap-1 flex-wrap">
+                    <div class="flex text-xl uppercase font-bold">
                         {{ team.name }}
                     </div>
                 </div>
@@ -113,16 +109,25 @@
                     {{ team.description }}
                 </div>
 
-                <div class="flex flex-wrap gap-4 my-2 text-sm justify-between">
-                    <div class="flex justify-center py-1 px-2 bg-gray-700 rounded">
-                        Group category {{ team.category }}
-                    </div>
-                    <div class="flex justify-center py-1 px-2 bg-gray-700 rounded">
-                        Group of {{ team.required_people_amount }} Nolanders
-                    </div>
-                    <div class="flex justify-center py-1 px-2 bg-gray-700 rounded">
-                        Arrive by {{ team.arrive_by || 'zaterdag' }}
-                    </div>
+                <div class="flex flex-wrap gap-1 text-sm mt-1">
+                    <Chip>
+                        <i
+                            :class="{
+                            'fa-burger-soda': team.category === 'eets & drinks',
+                            'fa-party-horn': team.category.includes('entertainment'),
+                            'fa-house': team.category.includes('locatie'),
+                            'fa-vacuum': team.category.includes('schoonmaak'),
+                            }"
+                            class="fas mr-3"/>
+
+                        {{ team.category }}
+                    </Chip>
+                    <Chip>
+                        <i class="fas fa-people mr-3"/> Team of {{ team.required_people_amount }} Nolanders
+                    </Chip>
+                    <Chip>
+                        <i class="fas fa-calendar mr-3"/> Arrive by {{ team.arrive_by || 'zaterdag' }}
+                    </Chip>
                 </div>
             </div>
         </div>
@@ -130,7 +135,14 @@
 </template>
 
 <script>
+import Chip from "@/Components/Chip.vue"
+import Button from "@/Components/Button.vue";
+
 export default {
+    components: {
+        Button,
+        Chip,
+    },
     props: {
         teams: Object,
         user: Object,
@@ -147,7 +159,6 @@ export default {
                 team_choice_second: this.user.team_choice_second,
                 team_choice_third: this.user.team_choice_third,
             }),
-            message: ''
         }
     },
 
@@ -237,3 +248,15 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+</style>

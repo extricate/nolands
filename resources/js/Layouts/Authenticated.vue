@@ -9,7 +9,7 @@
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
                                 <Link :href="route('dashboard')">
-                                    <BreezeApplicationLogo class="block h-9 w-auto"/>
+                                    <BreezeApplicationLogo class="block h-9 w-fit"/>
                                 </Link>
                             </div>
 
@@ -39,6 +39,10 @@
                                         <span class="inline-flex rounded-md">
                                             <button type="button"
                                                     class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-100 hover:text-gray-200 focus:outline-none transition ease-in-out duration-150">
+                                                <img class="object-cover w-6 h-6 mr-4 rounded-full"
+                                                     :src="$page.props.auth.user.avatar"
+                                                     alt="profile photo"/>
+
                                                 {{ $page.props.auth.user.name }}
 
                                                 <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"

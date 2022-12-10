@@ -32,13 +32,14 @@ class User extends Authenticatable implements HasMedia
         'tent_size',
         'other_tent_occupants',
         'dietary_preferences',
-        'has_blankets',
         'initial_sustenance',
         'departure_date',
         'is_approved',
         'team_choice_first',
         'team_choice_second',
         'team_choice_third',
+        'joins_in_2023',
+        'joins_party_bus',
     ];
 
     /**
@@ -51,14 +52,22 @@ class User extends Authenticatable implements HasMedia
         'remember_token',
     ];
 
-    protected $appends = array('is_admin');
+    protected $appends = [
+        'is_admin',
+        'avatar'
+    ];
+
+    public function getAvatarAttribute()
+    {
+        return $this->getFirstMediaUrl('avatars');
+    }
 
     public function registerMediaCollections(): void
     {
         $this
             ->addMediaCollection('avatars')
-            ->useFallbackUrl('/images/anonymous-user.jpg')
-            ->useFallbackPath(public_path('/images/anonymous-user.jpg'))
+            ->useFallbackUrl('/images/default-avatar.webp')
+            ->useFallbackPath(public_path('/images/default-avatar.webpg'))
             ->singleFile();
     }
 
@@ -74,6 +83,8 @@ class User extends Authenticatable implements HasMedia
         'departure_date' => 'datetime:Y-m-d',
         'payment_received' => 'boolean',
         'is_approved' => 'boolean',
+        'joins_party_bus' => 'boolean',
+        'joins_in_2023' => 'boolean',
     ];
 
     public function getIsAdminAttribute()

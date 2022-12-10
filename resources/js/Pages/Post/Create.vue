@@ -13,7 +13,9 @@
 
                 <div>
                     <Label for="body" value="Body"/>
-                    <textarea id="body" class="mt-1 block w-full h-64 rounded bg-gray-400 border border-white" v-model="form.body"/>
+                    <MdEditor :preview="false" theme="dark" language="en-US" id="body"
+                                class="mt-1 block w-full h-64 rounded bg-gray-400 border border-white"
+                                v-model="form.body"/>
                 </div>
 
                 <Button @click="submit">
@@ -30,6 +32,8 @@ import {useForm, Head} from "@inertiajs/inertia-vue3";
 import Input from "@/Components/Input.vue";
 import Button from "@/Components/Button.vue";
 import Label from "@/Components/Label.vue";
+import MdEditor from 'md-editor-v3';
+import 'md-editor-v3/lib/style.css';
 
 const props = defineProps({
     errors: Object,

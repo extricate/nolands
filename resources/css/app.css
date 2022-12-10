@@ -6,4 +6,5 @@
     min-height: 100vh;
     background-image: url("/background.jpeg");
     background-size: cover;
+    background-attachment: fixed;
 }

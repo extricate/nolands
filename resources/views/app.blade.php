@@ -8,6 +8,8 @@
 
     <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
+    <script src="https://kit.fontawesome.com/e9205f5c29.js" crossorigin="anonymous"></script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -39,8 +39,12 @@ Route::get('/users', [UserIndexController::class, '__invoke'])
     ->name('user.index');
 
 Route::get('/user/{user}/edit', [UserController::class, 'edit'])
-    ->middleware(['auth', 'verified', 'approved'])
+    ->middleware(['auth', 'verified', 'approved', 'role:admin'])
     ->name('user.edit');
+
+Route::post('/user/{user}/edit/avatar', [UserController::class, 'setAvatar'])
+    ->middleware(['auth', 'verified', 'approved'])
+    ->name('user.avatar');
 
 Route::patch('/user/{user}/edit', [UserController::class, 'update'])
     ->middleware(['auth', 'verified', 'approved'])

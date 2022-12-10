@@ -9,10 +9,10 @@
         </div>
     </template>
 
-    <form @submit.prevent="submit">
+    <form enctype="multipart/form-data" @submit.prevent="submit">
         <div>
             <BreezeLabel for="name" value="Name"/>
-            <BreezeInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus
+            <BreezeInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required
                          autocomplete="name"/>
         </div>
 
@@ -43,6 +43,20 @@
 
         <div class="block mt-4">
             <label class="flex items-center">
+                <BreezeCheckbox name="joins_in_2023" v-model:checked="form.joins_in_2023"/>
+                <span class="ml-2 text-sm text-gray-100">Will join in 2023</span>
+            </label>
+        </div>
+
+        <div class="block mt-4">
+            <label class="flex items-center">
+                <BreezeCheckbox name="joins_party_bus" v-model:checked="form.joins_party_bus"/>
+                <span class="ml-2 text-sm text-gray-100">Wants to join party bus</span>
+            </label>
+        </div>
+
+        <div class="block mt-4">
+            <label class="flex items-center">
                 <BreezeCheckbox name="has_medical_training" v-model:checked="form.has_medical_training"/>
                 <span class="ml-2 text-sm text-gray-100">Has medical training (i.e. EHBO, BHV)</span>
             </label>
@@ -67,13 +81,6 @@
             <BreezeInput id="dietary_preferences" type="text" class="mt-1 block w-full"
                          v-model="form.dietary_preferences"
                          autocomplete="dietary_preferences"/>
-        </div>
-
-        <div class="block mt-4">
-            <label class="flex items-center">
-                <BreezeCheckbox name="has_blankets" v-model:checked="form.has_blankets"/>
-                <span class="ml-2 text-sm text-gray-100">Old white blankets that we can have?</span>
-            </label>
         </div>
 
         <div class="mt-4">
@@ -177,6 +184,7 @@ export default {
 
     props: {
         user: Object,
+        errors: Object,
     },
 
     data() {
@@ -192,11 +200,12 @@ export default {
                 tent_size: this.user.tent_size,
                 other_tent_occupants: this.user.other_tent_occupants,
                 dietary_preferences: this.user.dietary_preferences,
-                has_blankets: this.user.has_blankets,
                 initial_sustenance: this.user.initial_sustenance,
                 departure_date: this.user.departure_date,
                 is_approved: this.user.is_approved,
                 is_admin: this.user.is_admin,
+                joins_party_bus: this.user.joins_party_bus,
+                joins_in_2023: this.user.joins_in_2023,
             }),
             message: '',
             isConfirmingDelete: false,
@@ -206,7 +215,7 @@ export default {
     methods: {
         submit() {
             this.form.patch(this.route('user.update', this.user), {
-                onFinish: () => {
+                onSuccess: () => {
                     this.message = 'User edited'
                     this.form.success = true;
                 },
@@ -222,7 +231,7 @@ export default {
             this.isConfirmingDelete = false
 
             this.$inertia.delete(this.route('user.delete', this.user))
-        }
+        },
     }
 }
 </script>

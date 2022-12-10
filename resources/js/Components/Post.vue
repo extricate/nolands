@@ -5,6 +5,12 @@
         <div class="markdown text-white">
             <Markdown :source="props.post.body"/>
         </div>
+
+        <InertiaLink v-show="$page.props.auth.role.find((role) => role.name === 'admin')"
+                     class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
+                     :href="route('posts.edit', post)">
+            Bewerken
+        </InertiaLink>
     </div>
 </template>
 
