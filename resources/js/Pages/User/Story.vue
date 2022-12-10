@@ -42,9 +42,10 @@
                         <div>
                             <div class="flex items-center space-x-6">
                                 <div class="shrink-0">
-                                    <img class="object-cover w-24 h-24 rounded-full"
-                                         :src="$page.props.auth.user.avatar"
-                                         alt="profile photo"/>
+                                    <img
+                                        class="object-cover w-24 h-24 rounded-full overflow-hidden border border-gray-500"
+                                        :src="$page.props.auth.user.avatar"
+                                        alt="profile photo"/>
                                 </div>
                                 <div class="flex flex-col">
                                     <label class="block">

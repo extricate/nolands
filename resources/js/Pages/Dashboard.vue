@@ -11,10 +11,9 @@
                         </H2>
 
                         <div class="flex flex-col items-center gap-4 justify-center mb-4">
-                            <div
-                                class="flex justify-center image avatar h-32 w-32 rounded-full overflow-hidden border border-gray-500">
-                                <img alt="avatar" class="object-cover" :src="$page.props.auth.user.avatar ">
-                            </div>
+                            <img alt="avatar"
+                                 class="flex justify-center image avatar h-32 w-32 rounded-full overflow-hidden border border-gray-500"
+                                 :src="$page.props.auth.user.avatar ">
                         </div>
 
                         <div

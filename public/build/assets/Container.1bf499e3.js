@@ -1,1 +1,0 @@
-import{_ as o}from"./_plugin-vue_export-helper.cdc0426e.js";import{o as t,c as r,b as s,f as n}from"./app.909f4a56.js";const a={},c={class:"container mx-auto my-6 p-2"};function _(e,i){return t(),r("div",c,[s("div",null,[n(e.$slots,"default")])])}const f=o(a,[["render",_]]);export{f as C};
