@@ -84,6 +84,8 @@ class User extends Authenticatable implements HasMedia
         'payment_received' => 'boolean',
         'is_approved' => 'boolean',
         'joins_party_bus' => 'boolean',
+        'has_arranged_transportation' => 'boolean',
+        'has_medical_training' => 'boolean',
         'joins_in_2023' => 'boolean',
     ];
 
