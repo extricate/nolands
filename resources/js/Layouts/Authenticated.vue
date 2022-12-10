@@ -21,6 +21,9 @@
                                 <BreezeNavLink :href="route('info')" :active="route().current('info')">
                                     Info
                                 </BreezeNavLink>
+                                <BreezeNavLink :href="route('teams.index')" :active="route().current('team.index')">
+                                    Teams
+                                </BreezeNavLink>
                                 <BreezeNavLink v-show="$page.props.auth.role.find((role) => role.name === 'admin')"
                                                :href="route('user.index')" :active="route().current('user.index')">
                                     Users <i class="ml-3 fas fa-lock"></i>

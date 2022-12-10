@@ -12,8 +12,7 @@ class UserStoryController extends Controller
     public function edit()
     {
         return Inertia::render('User/Story', [
-            'user'  => auth()->user(),
-            'teams' => Team::all(),
+            'user' => auth()->user(),
         ]);
     }
 
@@ -21,6 +20,6 @@ class UserStoryController extends Controller
     {
         $user->update($request->validated());
 
-        return redirect(route('story.edit'));
+        return redirect()->back()->with(['message' => 'Saved!']);
     }
 }

@@ -90,7 +90,7 @@
                     Beer
                 </option>
                 <option value="wine">
-                    Two bottles of wine
+                    Wine
                 </option>
                 <option value="soda">
                     Soda

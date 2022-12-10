@@ -62,6 +62,9 @@ Route::get('/info', function () {
     return redirect()->to(route('posts.index'));
 })->middleware(['auth', 'verified', 'approved'])->name('info');
 
+Route::resource('/teams', \App\Http\Controllers\TeamController::class)
+    ->middleware(['auth', 'verified', 'approved']);
+
 Route::get('/awaiting-approval', function () {
     return Inertia::render('AwaitingApproval');
 })->middleware(['auth'])->name('approval');

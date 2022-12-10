@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class TeamController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function index()
     {
-        //
+        return Inertia::render('Team/Index', [
+            'teams' => Team::query()->orderBy('category')->get(),
+        ]);
     }
 
     /**
@@ -30,7 +33,7 @@ class TeamController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +44,7 @@ class TeamController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Team  $team
+     * @param \App\Models\Team $team
      * @return \Illuminate\Http\Response
      */
     public function show(Team $team)
@@ -52,7 +55,7 @@ class TeamController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Team  $team
+     * @param \App\Models\Team $team
      * @return \Illuminate\Http\Response
      */
     public function edit(Team $team)
@@ -63,8 +66,8 @@ class TeamController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Team  $team
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Team $team
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Team $team)
@@ -75,7 +78,7 @@ class TeamController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Team  $team
+     * @param \App\Models\Team $team
      * @return \Illuminate\Http\Response
      */
     public function destroy(Team $team)

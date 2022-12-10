@@ -44,6 +44,15 @@
 
         <div class="block mt-4">
             <label class="flex items-center">
+                <BreezeCheckbox name="has_blankets" v-model:checked="form.joins_party_bus"/>
+                <span class="ml-2 text-sm text-gray-100">
+                    Would you be interested in travelling by party bus for an additional fee?
+                </span>
+            </label>
+        </div>
+
+        <div class="block mt-4">
+            <label class="flex items-center">
                 <BreezeCheckbox name="has_medical_training" v-model:checked="form.has_medical_training"/>
                 <span class="ml-2 text-sm text-gray-100">Do you have any medical training (i.e. EHBO, BHV)</span>
             </label>
@@ -91,7 +100,7 @@
                     Beer
                 </option>
                 <option value="wine">
-                    Two bottles of wine
+                    Wine
                 </option>
                 <option value="soda">
                     Soda
@@ -105,22 +114,21 @@
                          v-model="form.departure_date"
                          autocomplete="departure_date"/>
         </div>
-
-        <div class="flex items-center justify-between mt-4">
-            <Link class="text-gray-100 p-3 rounded hover:bg-gray-500" :href="route('dashboard')">
-                <i class="fas fa-arrow-left mr-3"></i> Back
-            </Link>
-
-            <BreezeButton class="ml-4"
-                          :class="{ 'opacity-25': form.processing, 'bg-green-600': form.success }"
-                          :disabled="form.processing">
-                {{ form.processing ? 'Processing... ' : 'Update my journey' }} <i
-                :class="{'fas fa-spin fa-spinner ml-3': form.processing, 'fas fa-check ml-3': form.success}"></i>
-            </BreezeButton>
-        </div>
     </form>
 
-    <TeamPreference :teams="teams" :user="user"/>
+    <div class="flex items-center justify-between mt-4">
+        <BreezeButton
+            @click="submit"
+            :class="{ 'opacity-25': form.processing, 'bg-green-600': form.success }"
+            :disabled="form.processing">
+            {{ form.processing ? 'Processing... ' : 'Update my journey' }} <i
+            :class="{'fas fa-spin fa-spinner ml-3': form.processing, 'fas fa-check ml-3': form.success}"></i>
+        </BreezeButton>
+
+        <Link class="text-gray-100 p-3 rounded hover:bg-gray-500" :href="route('dashboard')">
+            <i class="fas fa-arrow-left"></i> Back
+        </Link>
+    </div>
 </template>
 
 <script>
@@ -130,14 +138,12 @@ import BreezeCheckbox from '@/Components/Checkbox.vue'
 import BreezeInput from '@/Components/Input.vue'
 import BreezeLabel from '@/Components/Label.vue'
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue'
-import {Head, Link} from '@inertiajs/inertia-vue3';
-import TeamPreference from "@/Components/TeamPreference.vue";
+import {Head, Link} from '@inertiajs/inertia-vue3'
 
 export default {
     layout: BreezeGuestLayout,
 
     components: {
-        TeamPreference,
         BreezeButton,
         BreezeInput,
         BreezeLabel,

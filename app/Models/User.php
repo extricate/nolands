@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles, HasPermissions;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, HasPermissions, InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -51,6 +53,15 @@ class User extends Authenticatable
 
     protected $appends = array('is_admin');
 
+    public function registerMediaCollections(): void
+    {
+        $this
+            ->addMediaCollection('avatars')
+            ->useFallbackUrl('/images/anonymous-user.jpg')
+            ->useFallbackPath(public_path('/images/anonymous-user.jpg'))
+            ->singleFile();
+    }
+
     /**
      * The attributes that should be cast.
      *
@@ -58,11 +69,11 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'approved_on'       => 'datetime:Y-m-d',
-        'arrives_on'        => 'datetime:Y-m-d',
-        'departure_date'    => 'datetime:Y-m-d',
-        'payment_received'  => 'boolean',
-        'is_approved'       => 'boolean',
+        'approved_on' => 'datetime:Y-m-d',
+        'arrives_on' => 'datetime:Y-m-d',
+        'departure_date' => 'datetime:Y-m-d',
+        'payment_received' => 'boolean',
+        'is_approved' => 'boolean',
     ];
 
     public function getIsAdminAttribute()
