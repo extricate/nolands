@@ -23,6 +23,12 @@
         </div>
 
         <div class="mt-4">
+            <BreezeLabel for="reference" value="Referenced by"/>
+            <BreezeInput id="reference" type="text" class="mt-1 block w-full" v-model="form.reference"
+                         autocomplete="reference"/>
+        </div>
+
+        <div class="mt-4">
             <BreezeLabel for="arrives_on" value="You will arrive on"/>
             <BreezeInput id="arrives_on" type="date" class="mt-1 block w-full" v-model="form.arrives_on"
                          autocomplete="arrives_on"/>
@@ -194,6 +200,7 @@ export default {
                 email: this.user.email,
                 payment_received: this.user.payment_received,
                 arrives_on: this.user.arrives_on,
+                reference: this.user.reference,
                 has_arranged_transportation: this.user.has_arranged_transportation,
                 chauffeur_name: this.user.chauffeur_name,
                 has_medical_training: this.user.has_medical_training,

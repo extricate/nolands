@@ -25,6 +25,13 @@
         </div>
 
         <div class="mt-4">
+            <BreezeLabel for="reference" value="Through whom have you been introduced to our festival?"/>
+            <BreezeInput id="reference" type="text" class="mt-1 block w-full" v-model="form.reference"
+                         placeholder="Write down a name of at least one Nolander"
+                         autocomplete="reference"/>
+        </div>
+
+        <div class="mt-4">
             <BreezeLabel for="password" value="Password"/>
             <BreezeInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required
                          autocomplete="new-password"/>
@@ -76,6 +83,7 @@ export default {
                 password: '',
                 password_confirmation: '',
                 terms: false,
+                reference: '',
             })
         }
     },

@@ -37,6 +37,12 @@
                                  autocomplete="username"/>
                 </div>
 
+                <div class="mt-4">
+                    <BreezeLabel for="reference" value="Through whom have you been introduced to our festival?"/>
+                    <BreezeInput id="reference" type="text" class="mt-1 block w-full" v-model="form.reference"
+                                 autocomplete="reference"/>
+                </div>
+
                 <div class="flex flex-col justify-around gap-2 items-center border border-gray-700 p-6 rounded my-6">
                     <div class="flex flex-col justify-between gap-2">
                         <div>
@@ -226,6 +232,7 @@ export default {
                 arrives_on: this.user.arrives_on,
                 has_arranged_transportation: this.user.has_arranged_transportation,
                 chauffeur_name: this.user.chauffeur_name,
+                reference: this.user.reference,
                 has_medical_training: this.user.has_medical_training,
                 tent_size: this.user.tent_size,
                 other_tent_occupants: this.user.other_tent_occupants,

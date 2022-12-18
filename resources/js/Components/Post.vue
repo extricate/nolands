@@ -159,12 +159,12 @@ const props = defineProps({
         font-size: 100%;
         margin: 0;
         vertical-align: baseline;
-        *vertical-align: middle;
+        vertical-align: middle;
     }
 
     button, input {
         line-height: normal;
-        *overflow: visible;
+        overflow: visible;
     }
 
     button::-moz-focus-inner, input::-moz-focus-inner {

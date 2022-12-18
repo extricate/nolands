@@ -40,6 +40,7 @@ class User extends Authenticatable implements HasMedia
         'team_choice_third',
         'joins_in_2023',
         'joins_party_bus',
+        'reference',
     ];
 
     /**

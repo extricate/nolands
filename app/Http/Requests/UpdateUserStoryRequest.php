@@ -30,6 +30,7 @@ class UpdateUserStoryRequest extends FormRequest
             'arrives_on' => ['date', 'nullable'],
             'has_arranged_transportation' => ['boolean'],
             'chauffeur_name' => ['string', 'max:255', 'nullable'],
+            'reference' => ['string', 'max:255', 'nullable'],
             'has_medical_training' => ['boolean'],
             'tent_size' => ['integer', 'nullable'],
             'other_tent_occupants' => ['nullable'],
