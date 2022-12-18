@@ -32,6 +32,7 @@ class UpdateUserRequest extends FormRequest
             'is_approved' => ['boolean'],
             'payment_received' => ['boolean'],
             'arrives_on' => ['date', 'nullable'],
+            'reference' => ['string', 'max:255', 'nullable'],
             'has_arranged_transportation' => ['boolean'],
             'chauffeur_name' => ['string', 'max:255', 'nullable'],
             'has_medical_training' => ['boolean'],
