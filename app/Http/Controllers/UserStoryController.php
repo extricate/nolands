@@ -20,6 +20,10 @@ class UserStoryController extends Controller
     {
         $user->update($request->validated());
 
-        return redirect()->back()->with(['message' => 'Saved!']);
+        if ($user->team_choice_first) {
+            return redirect()->back()->with(['message' => 'Saved!']);
+        }
+
+        return redirect()->to(route('teams.index'));
     }
 }

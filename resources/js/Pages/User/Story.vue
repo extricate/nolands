@@ -3,6 +3,38 @@
 
     <Container class="rounded bg-gray-900/90 max-w-prose p-6 mb-6">
         <div class="p-6">
+            <!-- 2023 -->
+            <div
+                v-if="user.joins_in_2023 === false"
+                class="mb-3 rounded text-white w-full font-normal tracking-widest flex justify-center py-6 px-8 bg-red-800 hover:bg-red-600 text-2xl font-serif">
+                You are not joining us in 2023.
+            </div>
+
+            <div v-if="user.joins_in_2023"
+                 class="mb-3 rounded text-white w-full font-normal tracking-widest flex justify-center py-6 px-8 bg-green-800 hover:bg-green-600 text-2xl font-serif">
+                Attendance in 2023 confirmed!
+            </div>
+
+            <div class="flex gap-2">
+                <Button
+                    class="rounded w-full font-normal tracking-widest flex justify-center py-6 px-8 bg-green-800 hover:bg-green-600 text-2xl font-serif"
+                    @click="confirmAttendance(true)">
+                    Confirm attendance for 2023
+                </Button>
+
+                <Button
+                    class="rounded w-full font-normal tracking-widest flex justify-center py-6 px-8 bg-red-800 hover:bg-red-600 text-2xl font-serif"
+                    @click="confirmAttendance(false)">
+                    I will not join in 2023
+                </Button>
+            </div>
+        </div>
+    </Container>
+
+    <Container class="rounded bg-gray-900/90 max-w-prose p-6 mb-6" v-if="user.joins_in_2023">
+        <div class="p-6">
+            <H2>Please provide your info below.</H2>
+
             <BreezeValidationErrors class="mb-4"/>
 
             <template v-if="message">
@@ -10,19 +42,6 @@
                     {{ message }}
                 </div>
             </template>
-
-            <div v-if="!user.joins_in_2023" class="mb-3">
-                <Button
-                    class="rounded w-full font-normal tracking-widest flex justify-center py-6 px-8 bg-green-800 hover:bg-green-600 text-2xl font-serif"
-                    @click="confirmAttendance(true)">
-                    Confirm attendance for 2023
-                </Button>
-            </div>
-
-            <div v-if="user.joins_in_2023"
-                 class="mb-3 rounded w-full font-normal tracking-widest flex justify-center py-6 px-8 bg-green-800 hover:bg-green-600 text-2xl font-serif">
-                Attendance in 2023 confirmed!
-            </div>
 
             <form @submit.prevent="submit">
                 <div>
@@ -80,7 +99,7 @@
                 <div class="mt-4">
                     <BreezeLabel for="arrives_on"
                                  value="You will arrive on (thursday is only for the construction crew)"/>
-                    <BreezeInput id="arrives_on" type="date" min="2023-06-02" max="2023-06-05" class="mt-1 block w-full"
+                    <BreezeInput id="arrives_on" type="date" min="2023-06-01" max="2023-06-05" class="mt-1 block w-full"
                                  v-model="form.arrives_on"
                                  autocomplete="arrives_on"/>
                 </div>
@@ -201,11 +220,13 @@ import CheckboxLabel from "@/Components/CheckboxLabel.vue";
 import Authenticated from "@/Layouts/Authenticated.vue";
 import Container from "@/Layouts/Container.vue";
 import Button from "@/Components/Button.vue";
+import H2 from "@/Components/H2.vue";
 
 export default {
     layout: Authenticated,
 
     components: {
+        H2,
         Button,
         Container,
         CheckboxLabel,
@@ -249,8 +270,7 @@ export default {
     methods: {
         submit() {
             this.form.patch(this.route('story.update', this.user), {
-                preserveScroll: true,
-                resetOnSuccess: false,
+                resetOnSuccess: true,
                 onFinish: () => {
                     this.message = 'Your information has been saved'
                     this.form.success = true;

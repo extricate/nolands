@@ -8,7 +8,7 @@ We have confirmed that you are indeed awesome and we'd love nothing more than to
 Please add the details of your Nolands adventure on your profile, so that we can take appropriate measures to
 make your Nolands 2023 story a legendary one.
 
-Additionally, please do not forget to fulfill your financial obligation before 2nd of January, 2023.
+Additionally, please do not forget to fulfill your financial obligation before the deadline.
 
 @component('mail::button', ['url' => 'https://nolands.live/story'])
 Add my information

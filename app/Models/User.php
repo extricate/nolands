@@ -41,6 +41,7 @@ class User extends Authenticatable implements HasMedia
         'joins_in_2023',
         'joins_party_bus',
         'reference',
+        'invitation_send',
     ];
 
     /**
@@ -89,6 +90,7 @@ class User extends Authenticatable implements HasMedia
         'has_arranged_transportation' => 'boolean',
         'has_medical_training' => 'boolean',
         'joins_in_2023' => 'boolean',
+        'invitation_send' => 'boolean',
     ];
 
     public function getIsAdminAttribute()

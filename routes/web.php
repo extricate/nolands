@@ -64,7 +64,8 @@ Route::patch('/story/{user}', [UserStoryController::class, 'update'])
 
 Route::get('/info', function () {
     return redirect()->to(route('posts.index'));
-})->middleware(['auth', 'verified', 'approved'])->name('info');
+})->middleware(['auth', 'verified', 'approved'])
+    ->name('info');
 
 Route::resource('/teams', \App\Http\Controllers\TeamController::class)
     ->middleware(['auth', 'verified', 'approved']);
@@ -73,6 +74,6 @@ Route::get('/awaiting-approval', function () {
     return Inertia::render('AwaitingApproval');
 })->middleware(['auth'])->name('approval');
 
-Route::resource('posts', \App\Http\Controllers\PostController::class);
+Route::resource('posts', \App\Http\Controllers\PostController::class)->middleware('auth');
 
 require __DIR__ . '/auth.php';
