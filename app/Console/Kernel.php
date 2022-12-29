@@ -26,7 +26,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
         $schedule->job(new Send2023Invitation())->everyMinute()->when(function () {
             return now()->isAfter(Carbon::create(2023, 1, 1, 0, 1));
         });
