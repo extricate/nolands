@@ -36,9 +36,9 @@
               'bg-red-500' : user.joins_in_2023 === 0,
               'bg-gray-300' : user.joins_in_2023 === null,
              }" class="flex rounded p-1">
-                {{ user.joins_in_2023 === true && '2023' }}
-                {{ user.joins_in_2023 === false && '2022' }}
-                {{ user.joins_in_2023 === null && '???' }}
+                {{ user.joins_in_2023 === true ? '2023' : '' }}
+                {{ user.joins_in_2023 === false ? '2022' : '' }}
+                {{ user.joins_in_2023 === null ? '???' : '' }}
             </div>
 
             <InertiaLink class="flex hover:text-gray-300 bg-gray-500 rounded flex p-1"
