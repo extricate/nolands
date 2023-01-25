@@ -99,7 +99,7 @@
                 <div class="mt-4">
                     <BreezeLabel for="arrives_on"
                                  value="You will arrive on (thursday is only for the construction crew)"/>
-                    <BreezeInput id="arrives_on" type="date" min="2023-06-01" max="2023-06-05" class="mt-1 block w-full"
+                    <BreezeInput id="arrives_on" type="date" min="2023-05-25" max="2023-05-29" class="mt-1 block w-full"
                                  v-model="form.arrives_on"
                                  autocomplete="arrives_on"/>
                 </div>
@@ -120,7 +120,7 @@
 
                 <div class="mt-4">
                     <BreezeLabel for="departure_date" value="You will depart on"/>
-                    <BreezeInput id="departure_date" min="2023-06-02" max="2023-05-06" type="date"
+                    <BreezeInput id="departure_date" min="2023-05-25" max="2023-05-29" type="date"
                                  class="mt-1 block w-full"
                                  v-model="form.departure_date"
                                  autocomplete="departure_date"/>

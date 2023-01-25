@@ -1,1 +1,0 @@
-import{_ as t}from"./_plugin-vue_export-helper.cdc0426e.js";import{o,c as r,f as s}from"./app.bd05daa9.js";const c={},n={class:"font-serif text-2xl text-gray-100 pb-6"};function a(e,f){return o(),r("h2",n,[s(e.$slots,"default")])}const i=t(c,[["render",a]]);export{i as H};
